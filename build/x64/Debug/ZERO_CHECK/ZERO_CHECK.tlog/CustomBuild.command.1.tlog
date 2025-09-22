@@ -1,0 +1,10 @@
+^D:\LESTOREDOWNLOAD\VSCODE\VSCODEFILE\LIBRARYSYSTEM\BUILD\CMAKEFILES\38058CBC4C907388E8DF32FF777FEBB1\GENERATE.STAMP.RULE
+setlocal
+D:\cmake\bin\cmake.exe -SD:/LeStoreDownload/VScode/vscodeFile/LibrarySystem -BD:/LeStoreDownload/VScode/vscodeFile/LibrarySystem/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/LeStoreDownload/VScode/vscodeFile/LibrarySystem/build/LibrarySystem.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

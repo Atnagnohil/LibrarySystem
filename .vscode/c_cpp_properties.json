@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/src",
+        "${workspaceFolder}/**"
+      ],
+      "defines": [],
+      "windowsSdkVersion": "10.0.19041.0",
+      "compilerPath": "D:/LeStoreDownload/mingw64/bin/g++.exe",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64"
+    }
+  ],
+  "version": 4
+}
+
+// includePath：告诉 VSCode 你的头文件在哪（include/ 和 src/）。
+
+// compilerPath：指定 MinGW 的 g++，否则智能提示会出问题。
+
+// cppStandard：用 c++17，比较现代且稳定。
+
+// 这样写的目的是 给 IntelliSense 用，保证编辑器能正确识别头文件和语法。

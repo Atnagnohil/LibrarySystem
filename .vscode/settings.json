@@ -1,0 +1,15 @@
+{
+    "workbench.colorTheme": "Noctis Obscuro",
+    "cmake.showOptionsMovedNotification": false,
+    "explorer.confirmDelete": false,
+    "c-cpp-compile-run.run-in-external-terminal": true,
+    "python.defaultInterpreterPath": "d:\\LeStoreDownload\\VScode\\python7_15\\python\\python.exe",
+    "[python]": {
+
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.defaultColorDecorators": "never",
+        "editor.formatOnType": true,
+        "editor.wordBasedSuggestions": "off"
+    },
+    "makefile.configureOnOpen": true
+}

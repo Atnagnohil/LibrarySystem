@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch LibrarySystem",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/Debug/LibrarySystem.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:/LeStoreDownload/mingw64/bin/gdb.exe",
+      "preLaunchTask": "CMake Compile"
+    }
+  ]
+}
+
+
+// program：指向最终生成的可执行文件 LibrarySystem.exe。
+
+// MIMode + gdb.exe：用 MinGW 的 GDB 调试。
+
+// preLaunchTask：运行前自动执行编译任务，保证可执行文件是最新的。
+
+// externalConsole：打开独立终端，适合交互式程序。
