@@ -5,7 +5,8 @@ SRC_DIR = .
 OUTPUT = output/main.exe
 
 # 自动查找 src 目录下所有 .cpp 文件
-SRC = $(wildcard $(SRC_DIR)/*.cpp)
+SRC = $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/*.c)
+
 
 all: $(OUTPUT)
 

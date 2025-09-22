@@ -15,12 +15,59 @@ using namespace std;
 		9，错误提示：对无效输入（如 ID 不存在、库存不足）提供简洁提示。
 */
 
-int main()
-{
+// 控制台初始化函数，支持中文显示（Windows 下设置控制台编码）
+void initializeConsole() {
+#ifdef _WIN32
+    system("chcp 65001 > nul");
+#endif
+}
 
+int main(){
+    initializeConsole(); // 初始化控制台以支持中文显示
     LibrarySystem libSys;
-    libSys.showMenu();
-	system("pause");
+    int choice;
+    while (1){
+        libSys.showMenu();
+        cout << "Enter your choice: ";
+        cin >> choice;
+        switch (choice) {
+            case 0:
+                libSys.exitSystem();
+                break;
+            case 1:
+                // libSys.showBooks(); // 未实现，暂时打印提示
+                cout << "Show book information" << endl;
+                break;
+            case 2:
+                cout << "Search book" << endl;
+                break;
+            case 3:
+                cout << "Borrow book" << endl;
+                break;
+            case 4:
+                cout << "Return book" << endl;
+                break;
+            case 5:
+                cout << "Add book" << endl;
+				libSys.addBook();
+                break;
+            case 6:
+                cout << "Delete book" << endl;
+                break;
+            case 7:
+                cout << "Save data" << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+                break;
+        }
+		// 暂停以便用户查看操作结果
+        cout << "\nPress Enter to continue...";
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 清除输入缓冲区
+        cin.get(); // 等待用户按回车
+		libSys.clearScreen(); // 清屏
+		
+	}
 	return 0;
 }
 

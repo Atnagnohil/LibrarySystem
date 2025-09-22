@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Noctis Obscuro",
+    "workbench.colorTheme": "Noctis",
     "cmake.showOptionsMovedNotification": false,
     "explorer.confirmDelete": false,
     "c-cpp-compile-run.run-in-external-terminal": true,
@@ -11,5 +11,11 @@
         "editor.formatOnType": true,
         "editor.wordBasedSuggestions": "off"
     },
-    "makefile.configureOnOpen": true
+    "makefile.configureOnOpen": true,
+    "files.associations": {
+        "ostream": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "iosfwd": "cpp"
+    }
 }

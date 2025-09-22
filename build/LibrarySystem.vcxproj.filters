@@ -4,6 +4,12 @@
     <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\LibrarySystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\book.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\cJSON.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
