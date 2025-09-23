@@ -2,36 +2,46 @@
   "version": "2.0.0",
   "tasks": [
     {
+      // 生成构建系统文件（CMake 配置阶段）
+      "label": "CMake Configure",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S", "${workspaceFolder}",          // 源码目录
+        "-B", "${workspaceFolder}/build",    // 构建输出目录
+        "-DCMAKE_BUILD_TYPE=Debug"           // 默认 Debug，可切换 Release
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      // 编译项目（CMake 构建阶段）
       "label": "CMake Build",
       "type": "shell",
       "command": "cmake",
       "args": [
-        "-S", "${workspaceFolder}",
-        "-B", "${workspaceFolder}/build"
-      ],
-      "group": "build"
-    },
-    {
-      "label": "CMake Compile",
-      "type": "shell",
-      "command": "cmake",
-      "args": [
-        "--build", "${workspaceFolder}/build"
+        "--build", "${workspaceFolder}/build",
+        "--config", "Debug",                 // Windows 下 MSVC 需要；MinGW 可忽略
+        "-j"                                 // 并行编译
       ],
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "dependsOn": ["CMake Build"]
+      "dependsOn": ["CMake Configure"]
+    },
+    {
+      // 可选：运行编译出的程序
+      "label": "Run Executable",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/LibrarySystem.exe",
+      "group": "test",
+      "dependsOn": ["CMake Build"],
+      "problemMatcher": []
     }
   ]
 }
 
 
-// 第一步 (CMake Build)：生成 build/ 目录里的构建系统文件（类似 Makefile 或 ninja.build）。
-
-// 第二步 (CMake Compile)：真正执行编译。
-
-// 设置 dependsOn，保证按顺序执行。
-
-// 这样 Ctrl+Shift+B 就能自动执行 CMake 构建，不和插件冲突。

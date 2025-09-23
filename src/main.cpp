@@ -26,7 +26,7 @@ int main(){
     initializeConsole(); // 初始化控制台以支持中文显示
     LibrarySystem libSys;
     int choice;
-    while (1){
+    while (libSys.getIsRunning()) {
         libSys.showMenu();
         cout << "Enter your choice: ";
         cin >> choice;
@@ -35,27 +35,22 @@ int main(){
                 libSys.exitSystem();
                 break;
             case 1:
-                // libSys.showBooks(); // 未实现，暂时打印提示
-                cout << "Show book information" << endl;
+                libSys.showBooks();
                 break;
             case 2:
-                cout << "Search book" << endl;
+                libSys.searchBook();
                 break;
             case 3:
-                cout << "Borrow book" << endl;
+                libSys.borrowBook();
                 break;
             case 4:
-                cout << "Return book" << endl;
+                libSys.returnBook();
                 break;
             case 5:
-                cout << "Add book" << endl;
 				libSys.addBook();
                 break;
             case 6:
-                cout << "Delete book" << endl;
-                break;
-            case 7:
-                cout << "Save data" << endl;
+                libSys.deleteBook();
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
@@ -67,6 +62,9 @@ int main(){
         cin.get(); // 等待用户按回车
 		libSys.clearScreen(); // 清屏
 		
+        if (!libSys.getIsRunning()) {
+            cout << "Press Enter to continue...";
+        }
 	}
 	return 0;
 }

@@ -14,16 +14,19 @@ struct Book {
     string author;
     int totalStock; // 总库存
     int availableStock; // 可借阅数量
+    int version; // 版本号
 };
 class BookManager {
     public:
         void addBook();
         void deleteBook();
-        // Book* searchById();
-        // vector<Book*> searchByTitle();
+        Book* searchById();
+        vector<Book*> searchByTitle();
         void displayBooks();
         void saveToFile(); 
         void loadFromFile();
+        int getBookSize();
+        void sortBooksById();
     private:
         vector<Book> books; // 存储书本信息的容器
 };

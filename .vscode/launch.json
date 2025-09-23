@@ -2,27 +2,36 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch LibrarySystem",
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/build/Debug/LibrarySystem.exe",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": true,
-      "MIMode": "gdb",
-      "miDebuggerPath": "D:/LeStoreDownload/mingw64/bin/gdb.exe",
-      "preLaunchTask": "CMake Compile"
+      "name": "Debug LibrarySystem",              // 调试配置的名字
+      "type": "cppdbg",                           // 使用 C++ GDB/LLDB 调试器
+      "request": "launch",                        // 启动模式
+      "program": "${workspaceFolder}/build/Debug/LibrarySystem.exe", 
+      // 指定可执行文件路径（CMake 默认生成在 build/ 目录下）
+
+      "args": [],                                 // 可传递运行参数（暂时空）
+      "stopAtEntry": false,                       // 是否在程序入口停下
+      "cwd": "${workspaceFolder}",                // 工作目录（设置为项目根目录）
+      "environment": [],                          // 环境变量（通常为空）
+
+      "externalConsole": true,                    // 使用独立终端，适合交互
+      "MIMode": "gdb",                            // 调试协议模式（MinGW 用 gdb）
+      "miDebuggerPath": "D:/LeStoreDownload/mingw64/bin/gdb.exe", 
+      // gdb 路径，注意正斜杠，避免转义问题
+
+      "setupCommands": [                          // GDB 启动时执行的命令
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set disassembly flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+
+      "preLaunchTask": "CMake Build"              // 调试前自动构建（和 tasks.json 对应）
     }
   ]
 }
-
-
-// program：指向最终生成的可执行文件 LibrarySystem.exe。
-
-// MIMode + gdb.exe：用 MinGW 的 GDB 调试。
-
-// preLaunchTask：运行前自动执行编译任务，保证可执行文件是最新的。
-
-// externalConsole：打开独立终端，适合交互式程序。
