@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "book.h"
+#include "user.h"
 using namespace std;
 
 
@@ -21,6 +22,7 @@ class LibrarySystem {
         void searchBook();
         void borrowBook();
         void returnBook();
+        void userLog(); // 用户登录
     private:
         bool isRunning;  // 程序运行状态标志位
  };

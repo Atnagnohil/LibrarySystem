@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#include "../include/LibrarySystem.h"
+#include "LibrarySystem.h"
 using namespace std;
 /*
 	图书管理系统主要功能：
@@ -21,12 +21,23 @@ void initializeConsole() {
     system("chcp 65001 > nul");
 #endif
 }
+bool status = false; // 定义用户是否登录的状态
 
 int main(){
     initializeConsole(); // 初始化控制台以支持中文显示
     LibrarySystem libSys;
     int choice;
     while (libSys.getIsRunning()) {
+        if (!status) {
+            // 程序开始之前先进行登录
+            libSys.userLog();
+            status = true; // 登录成功，设置状态为已登录
+            // 清除输入缓冲
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // 清除输入缓冲区
+            cin.get(); // 等待用户按回车
+            // 清屏
+            libSys.clearScreen();
+        }
         libSys.showMenu();
         cout << "Enter your choice: ";
         cin >> choice;

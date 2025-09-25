@@ -340,6 +340,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\book.cpp" />
     <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\cJSON.c" />
     <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\main.cpp" />
+    <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\user.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

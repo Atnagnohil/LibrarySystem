@@ -1,17 +1,20 @@
-#include "../include/LibrarySystem.h"
+#include "LibrarySystem.h"
 #include "book.h"
 
 BookManager bookManager; // 创建 BookManager 实例
+UserManager userManager; // 创建 UserManager 实例
 
 // 构造函数
 LibrarySystem::LibrarySystem() {
     bookManager.loadFromFile(); // 初始化时加载数据
+    userManager.loadFromFile(); // 初始化时加载用户数据
     bookManager.sortBooksById(); // 按照ID排序书本
     isRunning = true; // 设置程序运行状态为 true
 }
 
 // 析构函数
 LibrarySystem::~LibrarySystem() {
+    userManager.saveUserInfoToJson();  // 退出时保存用户数据
     bookManager.saveToFile(); // 退出时保存数据
 }
 
@@ -53,6 +56,10 @@ void LibrarySystem::clearScreen() {
 
 // 添加书本
 void LibrarySystem::addBook() {
+    if (!userManager.getUserStatus()) { //  检查当前用户是否为管理员
+        cout << "Only admin users can add books." << endl;
+        return;
+    }
     bookManager.addBook();
 }
 
@@ -67,6 +74,10 @@ void LibrarySystem::showBooks() {
 
 // 删除书本
 void LibrarySystem::deleteBook() {
+     if (!userManager.getUserStatus()) { //  检查当前用户是否为管理员
+        cout << "Only admin users can delete books." << endl;
+        return;
+    }
     bookManager.deleteBook();
 }
 
@@ -208,3 +219,7 @@ void LibrarySystem::returnBook() {
     }
 }
 
+// 用户登录
+void LibrarySystem::userLog() {
+    userManager.showLogMenu();
+}

@@ -1,0 +1,7 @@
+{
+	"users":	[{
+			"username":	"李鸿",
+			"password":	"Lh123456S@ltStr1ng",
+			"isAdmin":	true
+		}]
+}

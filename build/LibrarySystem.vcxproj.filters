@@ -13,6 +13,9 @@
     <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\src\user.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="D:\LeStoreDownload\VScode\vscodeFile\LibrarySystem\CMakeLists.txt" />
